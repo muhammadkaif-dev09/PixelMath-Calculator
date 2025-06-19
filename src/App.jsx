@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 // Optional: Use for safe expression evaluation
-// import { evaluate } from "mathjs";
+import { evaluate } from "mathjs";
 
 function App() {
   const btn =
@@ -27,8 +27,8 @@ function App() {
       if (value === "=") {
         try {
           const parsed = evaluateExpression(expression);
-          // const resultValue = evaluate(parsed); // Safe alternative to eval()
-          const resultValue = eval(parsed);
+          const resultValue = evaluate(parsed); // Safe alternative to eval()
+          // const resultValue = eval(parsed);
           setExpression(resultValue.toString());
           setResult("");
         } catch (error) {
@@ -160,7 +160,9 @@ function App() {
       {/* Footer */}
       <footer className="text-center text-sm text-gray-500 mt-4">
         Made with ❤️ by{" "}
-        <span className="font-medium text-gray-700">Kaif Chandiwala</span>{" "}
+        <span className="font-medium text-gray-700">
+          <a href="https://github.com/muhammadkaif-dev09?tab=repositories">Kaif Chandiwala</a>
+        </span>{" "}
         &middot; © {new Date().getFullYear()}
       </footer>
     </div>
